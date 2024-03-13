@@ -1,0 +1,37 @@
+﻿<!doctype html>
+<html lang="fr">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue.js - Les bases</title>
+    <!-- Intégration de Vue.js -->
+    <script src="js/vue.global.js"></script>
+</head>
+<body>
+    <h1>Vue.js - Les bases</h1>
+    <h2>Instructions</h2>
+    <ol>
+        <li>Chargez Vue.js, et affecter une vue à l'élément d'identifiant <code>monapp</code></li>
+        <li>Ajoutez une propriété <code>message</code> valant "Salut" au modèle de données</li>
+        <li>Affichez dans un paragraphe cette donnée, avec la syntaxe utilisant une directive, et avec la syntaxe «&thinsp;moustache&thinsp;»</li>
+        <li>Ajoutez une propriété initialisée à la date du jour, et affichez l'année courante dans un autre paragraphe</li>
+    </ol>
+
+    <div id="monapp">
+
+    </div>
+
+    <script>
+        const appli = {
+            data () {
+                return {
+                    message: "Salut",
+                    d: new Date()
+                }
+            }
+        };
+
+        Vue.createApp(appli).mount("#monapp");
+    </script>
+</body>
+</html>
