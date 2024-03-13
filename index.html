@@ -25,11 +25,16 @@
     </li>
     <li>
         Ajoutez une propriété <code>dateJour</code> initialisée à la date du jour,
-        et affichez l'année courante dans le dernier paragraphe.
+        et affichez l'année courante dans le troisième paragraphe
         <br>
         <a href="https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Global_Objects/Date">
             Les dates en JavaScript
         </a>
+    </li>
+    <li>
+        Créer une propriété <code>lienJu</code> initialisée avec <code>https://www.jura.ch</code>
+        <br>
+        Modifier l'attribut <code>href</code> du lien du quatrième paragraphe pour qu'il pointe vers <code>lienJu</code>.
     </li>
 </ol>
 
@@ -39,6 +44,7 @@
     <p v-text="message"></p>
     <p>Avec des moustaches: {{ message }}</p>
     <p>Nous sommes en {{ dateJour.getFullYear() }}.</p>
+    <p>Visitez le site du canton du <a href="#">Jurrrrrra.ch</a></p>
 </div>
 
 <script>
