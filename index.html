@@ -12,13 +12,17 @@
 <h2>Instructions</h2>
 <ol>
     <li>Chargez Vue.js (il est dans le dossier <code>js/</code>),
-        et affecter une vue à l'élément d'identifiant <code>monapp</code>.</li>
+        et affecter une vue à l'élément d'identifiant <code>monapp</code>.
+    </li>
     <li>Ajoutez une propriété <code>message</code> valant
-        "Salut" au modèle de données Vue.</li>
+        "Salut" au modèle de données Vue.
+    </li>
     <li>Affichez le contenu de <code>message</code> dans le premier paragraphe
-        en utilisant la directive <code>v-text</code>.</li>
+        en utilisant la directive <code>v-text</code>.
+    </li>
     <li>Affichez le contenu de <code>message</code> dans le deuxième paragraphe
-        avec la syntaxe «&thinsp;moustache&thinsp;».</li>
+        avec la syntaxe «&thinsp;moustache&thinsp;».
+    </li>
     <li>
         Ajoutez une propriété <code>dateJour</code> initialisée à la date du jour,
         et affichez l'année courante dans le dernier paragraphe.
@@ -38,16 +42,14 @@
 </div>
 
 <script>
-    const appli = {
-        data () {
+    const appli = Vue.createApp({
+        data() {
             return {
                 message: "Salut",
                 dateJour: new Date()
             }
         }
-    };
-
-    Vue.createApp(appli).mount("#monapp");
+    }).mount("#monapp");
 </script>
 </body>
 </html>
