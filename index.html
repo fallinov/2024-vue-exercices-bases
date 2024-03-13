@@ -46,10 +46,25 @@
             <th scope="col">Nom</th>
             <th scope="col">Note</th>
         </tr>
-        <tr v-for="ele in eleves" :key="ele.id">
-            <td>{{ ele.id }}</td>
-            <td>{{ ele.nom }}</td>
-            <td>{{ ele.note }}</td>
+        <tr>
+            <td>11</td>
+            <td>Dupont</td>
+            <td>12</td>
+        </tr>
+        <tr>
+            <td>455</td>
+            <td>Aubin</td>
+            <td>8</td>
+        </tr>
+        <tr>
+            <td>33</td>
+            <td>François</td>
+            <td>14</td>
+        </tr>
+        <tr>
+            <td>8</td>
+            <td>Martin</td>
+            <td>9</td>
         </tr>
     </table>
 
@@ -60,10 +75,15 @@
             <th scope="col">Nom</th>
             <th scope="col">Note</th>
         </tr>
-        <tr v-for="ele in eleves.filter((e) => e.groupe === 'A')" :key="ele.id">
-            <td>{{ ele.id }}</td>
-            <td>{{ ele.nom }}</td>
-            <td>{{ ele.note }}</td>
+        <tr>
+            <td>11</td>
+            <td>Dupont</td>
+            <td>12</td>
+        </tr>
+        <tr>
+            <td>8</td>
+            <td>Martin</td>
+            <td>9</td>
         </tr>
     </table>
 
@@ -74,10 +94,15 @@
             <th scope="col">Nom</th>
             <th scope="col">Note</th>
         </tr>
-        <tr v-for="ele in eleves.filter((e) => e.groupe === 'B')" :key="ele.id">
-            <td>{{ ele.id }}</td>
-            <td>{{ ele.nom }}</td>
-            <td>{{ ele.note }}</td>
+        <tr>
+            <td>455</td>
+            <td>Aubin</td>
+            <td>8</td>
+        </tr>
+        <tr>
+            <td>33</td>
+            <td>François</td>
+            <td>14</td>
         </tr>
     </table>
 </div>
