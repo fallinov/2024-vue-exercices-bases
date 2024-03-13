@@ -3,48 +3,83 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vue.js - Les bases</title>
+    <title>Vue.js - Boucles</title>
     <link rel="stylesheet" href="css/main.css">
     <script src="js/vue.global.js"></script>
 </head>
 <body>
-<h1>Vue.js - Les bases</h1>
+<h1>Vue.js - Utilisation de boucles</h1>
 <h2>Instructions</h2>
-<ol>
-    <li>Chargez Vue.js (il est dans le dossier <code>js/</code>),
-        et affecter une vue à l'élément d'identifiant <code>monapp</code>.
-    </li>
-    <li>Ajoutez une propriété <code>message</code> valant
-        "Salut" au modèle de données Vue.
-    </li>
-    <li>Affichez le contenu de <code>message</code> dans le premier paragraphe
-        en utilisant la directive <code>v-text</code>.
-    </li>
-    <li>Affichez le contenu de <code>message</code> dans le deuxième paragraphe
-        avec la syntaxe «&thinsp;moustache&thinsp;».
-    </li>
-    <li>
-        Ajoutez une propriété <code>dateJour</code> initialisée à la date du jour,
-        et affichez l'année courante dans le troisième paragraphe
-        <br>
-        <a href="https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Global_Objects/Date">
-            Les dates en JavaScript
-        </a>
-    </li>
-    <li>
-        Créer une propriété <code>lienJu</code> initialisée avec <code>https://www.jura.ch</code>
-        <br>
-        Modifier l'attribut <code>href</code> du lien du quatrième paragraphe pour qu'il pointe vers <code>lienJu</code>.
-    </li>
-</ol>
+
+<p>Créez le tableau <code>eleves</code> suivant dans votre application Vue.js :</p>
+<pre>eleves: [
+    {id: 11, nom: "Dupont", note: 12, groupe: "A"},
+    {id: 455, nom: "Aubin", note: 8, groupe: "B"},
+    {id: 33, nom: "François", note: 14, groupe: "B"},
+    {id: 8, nom: "Martin", note: 9, groupe: "A"},
+    {id: 12, nom: "Lefebvre", note: 10, groupe: "A"},
+    {id: 9, nom: "Leroy", note: 11, groupe: "B"},
+    {id: 10, nom: "Lambert", note: 13, groupe: "A"},
+    {id: 13, nom: "Leroux", note: 15, groupe: "B"},
+    {id: 14, nom: "Lemaire", note: 16, groupe: "A"},
+    {id: 15, nom: "Lemoine", note: 17, groupe: "B"},
+    {id: 16, nom: "Lecomte", note: 18, groupe: "A"},
+    {id: 17, nom: "Lefevre", note: 19, groupe: "B"},
+    {id: 18, nom: "Leroux", note: 20, groupe: "A"}
+]</pre>
+
+<p>En utilisant une boucle <code>v-for</code>,
+    reproduisez les tableaux HTML suivants en parcourant le tableau <code>eleves</code> :</p>
+<ul>
+    <li>Tableau de tous les élèves</li>
+    <li>Tableau des élèves du groupe A</li>
+    <li>Tableau des élèves du groupe B</li>
+</ul>
 
 <hr>
 
 <div id="monapp">
-    <p v-text="message"></p>
-    <p>Avec des moustaches: {{ message }}</p>
-    <p>Nous sommes en {{ dateJour.getFullYear() }}.</p>
-    <p>Visitez le site du canton du <a :href="lienJu">Jurrrrrra.ch</a></p>
+    <h2>Tableaux de tous les élèves</h2>
+    <table>
+        <tr>
+            <th scope="col">Id élève</th>
+            <th scope="col">Nom</th>
+            <th scope="col">Note</th>
+        </tr>
+        <tr v-for="ele in eleves" :key="ele.id">
+            <td>{{ ele.id }}</td>
+            <td>{{ ele.nom }}</td>
+            <td>{{ ele.note }}</td>
+        </tr>
+    </table>
+
+    <h2>Tableaux des élèves du groupe A</h2>
+    <table>
+        <tr>
+            <th scope="col">Id élève</th>
+            <th scope="col">Nom</th>
+            <th scope="col">Note</th>
+        </tr>
+        <tr v-for="ele in eleves.filter((e) => e.groupe === 'A')" :key="ele.id">
+            <td>{{ ele.id }}</td>
+            <td>{{ ele.nom }}</td>
+            <td>{{ ele.note }}</td>
+        </tr>
+    </table>
+
+    <h2>Tableaux des élèves du groupe B</h2>
+    <table>
+        <tr>
+            <th scope="col">Id élève</th>
+            <th scope="col">Nom</th>
+            <th scope="col">Note</th>
+        </tr>
+        <tr v-for="ele in eleves.filter((e) => e.groupe === 'B')" :key="ele.id">
+            <td>{{ ele.id }}</td>
+            <td>{{ ele.nom }}</td>
+            <td>{{ ele.note }}</td>
+        </tr>
+    </table>
 </div>
 
 <script>
@@ -52,8 +87,21 @@
         data() {
             return {
                 message: "Salut",
-                dateJour: new Date(),
-                lienJu: "https://www.jura.ch"
+                eleves: [
+                    {id: 11, nom: "Dupont", note: 12, groupe: "A"},
+                    {id: 455, nom: "Aubin", note: 8, groupe: "B"},
+                    {id: 33, nom: "François", note: 14, groupe: "B"},
+                    {id: 8, nom: "Martin", note: 9, groupe: "A"},
+                    {id: 12, nom: "Lefebvre", note: 10, groupe: "A"},
+                    {id: 9, nom: "Leroy", note: 11, groupe: "B"},
+                    {id: 10, nom: "Lambert", note: 13, groupe: "A"},
+                    {id: 13, nom: "Leroux", note: 15, groupe: "B"},
+                    {id: 14, nom: "Lemaire", note: 16, groupe: "A"},
+                    {id: 15, nom: "Lemoine", note: 17, groupe: "B"},
+                    {id: 16, nom: "Lecomte", note: 18, groupe: "A"},
+                    {id: 17, nom: "Lefevre", note: 19, groupe: "B"},
+                    {id: 18, nom: "Leroux", note: 20, groupe: "A"}
+                ]
             }
         }
     }).mount("#monapp");
