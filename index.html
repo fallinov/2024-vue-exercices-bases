@@ -44,7 +44,7 @@
     <p v-text="message"></p>
     <p>Avec des moustaches: {{ message }}</p>
     <p>Nous sommes en {{ dateJour.getFullYear() }}.</p>
-    <p>Visitez le site du canton du <a href="#">Jurrrrrra.ch</a></p>
+    <p>Visitez le site du canton du <a :href="lienJu">Jurrrrrra.ch</a></p>
 </div>
 
 <script>
@@ -52,7 +52,8 @@
         data() {
             return {
                 message: "Salut",
-                dateJour: new Date()
+                dateJour: new Date(),
+                lienJu: "https://www.jura.ch"
             }
         }
     }).mount("#monapp");
