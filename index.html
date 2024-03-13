@@ -39,7 +39,23 @@
 <p>Utliser la méthode
     <a href="https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Global_Objects/Array/filter">filter()</a>
     pour filtrer les élèves par groupe.</p>
+<h3>Exemple d'utilisation de la méthode filter()</h3>
+<pre>const personnes = [
+  {id: 23, nom: 'Jean'},
+  {id: 77, nom: 'Pauline'},
+  {id: 1, nom: 'Fred'}
+];
 
+// Récupère toutes les personnes sauf la 77 => ou supprime la personne 77
+let result = personnes.filter(function(val) {
+  return val.id !== 77
+});
+console.log(result);
+
+// Même chose en écriture optimisée
+result = personnes.filter((val) => val.id !== 7)
+console.log(result);
+</pre>
 <hr>
 
 <div id="monapp">
