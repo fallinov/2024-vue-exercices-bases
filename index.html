@@ -4,17 +4,23 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Vue.js - Les bases</title>
+    <link rel="stylesheet" href="css/main.css">
 </head>
 <body>
     <h1>Vue.js - Les bases</h1>
     <h2>Instructions</h2>
     <ol>
-        <li>Chargez Vue.js (il est dans le dossier <code>js/</code>), et affecter une vue à l'élément d'identifiant <code>monapp</code></li>
-        <li>Ajoutez une propriété <code>message</code> valant "Salut" au modèle de données Vue</li>
-        <li>Affichez dans le premier paragraphe cette donnée, avec la syntaxe utilisant la directive <code>v-text</code></li>
-        <li>Dans le deuxième paragraphe avec la syntaxe «&thinsp;moustache&thinsp;»</li>
+        <li>Chargez Vue.js (il est dans le dossier <code>js/</code>),
+            et affecter une vue à l'élément d'identifiant <code>monapp</code>.</li>
+        <li>Ajoutez une propriété <code>message</code> valant
+            "Salut" au modèle de données Vue.</li>
+        <li>Affichez le contenu de <code>message</code> dans le premier paragraphe
+            en utilisant la directive <code>v-text</code>.</li>
+        <li>Affichez le contenu de <code>message</code> dans le deuxième paragraphe
+            avec la syntaxe «&thinsp;moustache&thinsp;».</li>
         <li>
-            Ajoutez une propriété initialisée à la date du jour, et affichez l'année courante dans un autre paragraphe
+            Ajoutez une propriété <code>dateJour</code> initialisée à la date du jour,
+            et affichez l'année courante dans le dernier paragraphe.
             <br>
             <a href="https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Global_Objects/Date">
                 Les dates en JavaScript
@@ -22,10 +28,12 @@
         </li>
     </ol>
 
+    <hr>
+
     <div id="monapp">
-        <p>**Salut**</p>
-        <p>Avec des moustaches: **Salut**</p>
-        <p>Nous sommes en **2024**.</p>
+        <p>**message**</p>
+        <p>Avec des moustaches: **message**</p>
+        <p>Nous sommes en **dateJour**.</p>
     </div>
 
     <script>
