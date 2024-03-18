@@ -11,73 +11,67 @@
 <h1>Vue.js - Utilisation de boucles</h1>
 <h2>Instructions</h2>
 
-<p>Créez le tableau <code>eleves</code> suivant dans votre application Vue.js :</p>
-<pre>eleves: [
-    {id: 11, nom: "Dupont", note: 12, groupe: "A"},
-    {id: 455, nom: "Aubin", note: 8, groupe: "B"},
-    {id: 33, nom: "François", note: 14, groupe: "B"},
-    {id: 8, nom: "Martin", note: 9, groupe: "A"},
-    {id: 12, nom: "Lefebvre", note: 10, groupe: "A"},
-    {id: 9, nom: "Leroy", note: 11, groupe: "B"},
-    {id: 10, nom: "Lambert", note: 13, groupe: "A"},
-    {id: 13, nom: "Leroux", note: 15, groupe: "B"},
-    {id: 14, nom: "Lemaire", note: 16, groupe: "A"},
-    {id: 15, nom: "Lemoine", note: 17, groupe: "B"},
-    {id: 16, nom: "Lecomte", note: 18, groupe: "A"},
-    {id: 17, nom: "Lefevre", note: 19, groupe: "B"},
-    {id: 18, nom: "Leroux", note: 20, groupe: "A"}
-]</pre>
-
-<p>En utilisant une boucle <code>v-for</code>,
-    reproduisez les tableaux HTML suivants en parcourant le tableau <code>eleves</code> :</p>
+<p>Créer une application Vue.js qui permet d'ajouter et supprimer des articles à une liste de courses.</p>
+<p>La liste de courses est un tableau d'objets avec les propriétés suivantes :</p>
 <ul>
-    <li>Tableau de tous les élèves</li>
-    <li>Tableau des élèves du groupe A</li>
-    <li>Tableau des élèves du groupe B</li>
+    <li><code>id</code> : un identifiant unique</li>
+    <li><code>libelle</code> : le nom de l'article</li>
 </ul>
+<p>Les id des articles sont générés à partir du compteur <code>dernierId</code> qu'il faudra incrémenter à chaque ajout.</p>
+<p>Pour ajouter un nouvel article, l'utilisateur doit saisir le nom de l'article dans le champ texte et cliquer sur le bouton.</p>
+<p>Si le champ texte est vide, une alerte <code>"Veuillez saisir un article"</code> doit être affichée.</p>
+<p>Le champ texte doit être vidé après l'ajout de l'article.</p>
+
+<h3>Etapes</h3>
+<ol>
+    <li>Créer une donnée <code>nouvelArticle</code> dans Vue et la lier au champ de formulaire avec la directive
+        <a href="https://vuejs.org/guide/components/v-model.html#basic-usage">v-model</a></li>
+    <li>Créer une <a class="ext" href="https://vuejs.org/api/options-state.html#methods">méthode</a>
+        <code>ajouterArticle()</code> qui ajoute un article à la liste de courses
+        <ol>
+            <li>Si le champ texte est vide, afficher une alerte <code>"Veuillez saisir un article"</code>
+                et quitter la méthode.</li>
+            <li>Créer un objet avec les propriétés <code>id</code> et <code>libelle</code>
+                en incrémentant <code>dernierId</code>
+                et en récupérant la valeur saisie par l'utilisateur dans le champ texte.</li>
+            <li>Ajouter l'objet au tableau <code>panierAchats</code> avec
+                <a class="ext" href="https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Global_Objects/Array/push">
+                push()</a></li>
+            <li>Vider le champ texte pour faciliter la prochaine saisie de l'utilisateur.</li>
+        </ol>
+    </li>
+
+    <li>Appeler la méthode <code>ajouterArticle</code> lors du clic sur le bouton</li>
+    <li>Créer une méthode supprimerArticle(idArticle) qui supprime un article de la liste de courses
+        <ol>
+            <li>Utiliser la méthode <a class="ext" href="https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Global_Objects/Array/filter">filter()</a>
+                pour créer un nouveau tableau sans l'article à supprimer</li>
+            <li>Remplacer le tableau <code>panierAchats</code> par le nouveau tableau</li>
+        </ol>
+    </li>
+    <li>Appeler la méthode <code>supprimerArticle</code> lors du clic sur les liens "Supprimer".
+    Ne pas oublier de passer l'id de l'article à supprimer en argument de la méthode.</li>
+</ol>
 
 <hr>
 
 <div id="monapp">
-    <h2>Tableaux de tous les élèves</h2>
+    <h2>Ajouter à la liste de courses</h2>
+    <input type="text" v-model="nouvelArticle">
+    <button @click="ajouterArticle">Ajouter un article</button>
+    <h2>Votre liste de courses</h2>
     <table>
         <tr>
-            <th scope="col">Id élève</th>
-            <th scope="col">Nom</th>
-            <th scope="col">Note</th>
+            <th>Id</th>
+            <th>Article</th>
+            <th>Actions</th>
         </tr>
-        <tr v-for="ele in eleves" :key="ele.id">
+        <tr v-for="ele in panierAchats" :key="ele.id">
             <td>{{ ele.id }}</td>
-            <td>{{ ele.nom }}</td>
-            <td>{{ ele.note }}</td>
-        </tr>
-    </table>
-
-    <h2>Tableaux des élèves du groupe A</h2>
-    <table>
-        <tr>
-            <th scope="col">Id élève</th>
-            <th scope="col">Nom</th>
-            <th scope="col">Note</th>
-        </tr>
-        <tr v-for="ele in eleves.filter((e) => e.groupe === 'A')" :key="ele.id">
-            <td>{{ ele.id }}</td>
-            <td>{{ ele.nom }}</td>
-            <td>{{ ele.note }}</td>
-        </tr>
-    </table>
-
-    <h2>Tableaux des élèves du groupe B</h2>
-    <table>
-        <tr>
-            <th scope="col">Id élève</th>
-            <th scope="col">Nom</th>
-            <th scope="col">Note</th>
-        </tr>
-        <tr v-for="ele in eleves.filter((e) => e.groupe === 'B')" :key="ele.id">
-            <td>{{ ele.id }}</td>
-            <td>{{ ele.nom }}</td>
-            <td>{{ ele.note }}</td>
+            <td>{{ ele.libelle }}</td>
+            <td>
+                <a href="#" @click="supprimerArticle(ele.id)">Supprimer</a>
+            </td>
         </tr>
     </table>
 </div>
@@ -86,22 +80,28 @@
     const appli = Vue.createApp({
         data() {
             return {
-                message: "Salut",
-                eleves: [
-                    {id: 11, nom: "Dupont", note: 12, groupe: "A"},
-                    {id: 455, nom: "Aubin", note: 8, groupe: "B"},
-                    {id: 33, nom: "François", note: 14, groupe: "B"},
-                    {id: 8, nom: "Martin", note: 9, groupe: "A"},
-                    {id: 12, nom: "Lefebvre", note: 10, groupe: "A"},
-                    {id: 9, nom: "Leroy", note: 11, groupe: "B"},
-                    {id: 10, nom: "Lambert", note: 13, groupe: "A"},
-                    {id: 13, nom: "Leroux", note: 15, groupe: "B"},
-                    {id: 14, nom: "Lemaire", note: 16, groupe: "A"},
-                    {id: 15, nom: "Lemoine", note: 17, groupe: "B"},
-                    {id: 16, nom: "Lecomte", note: 18, groupe: "A"},
-                    {id: 17, nom: "Lefevre", note: 19, groupe: "B"},
-                    {id: 18, nom: "Leroux", note: 20, groupe: "A"}
+                nouvelArticle: "",
+                dernierId: 4,
+                panierAchats: [
+                    { id: 1, libelle: "Pommes" },
+                    { id: 2, libelle: "Poires" },
+                    { id: 3, libelle: "Oranges" },
+                    { id: 4, libelle: "Bananes" }
                 ]
+            }
+        },
+        methods: {
+            ajouterArticle() {
+                if(this.nouvelArticle === "") {
+                    alert("Veuillez saisir un article");
+                    return;
+                }
+
+                this.panierAchats.push({ id: ++this.dernierId, libelle: this.nouvelArticle });
+                this.nouvelArticle = "";
+            },
+            supprimerArticle(id) {
+                this.panierAchats = this.panierAchats.filter(art => art.id !== id);
             }
         }
     }).mount("#monapp");
