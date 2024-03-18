@@ -38,7 +38,7 @@
                 en incrémentant <code>dernierId</code>
                 et en récupérant la valeur saisie par l'utilisateur dans le champ texte.
             </li>
-            <li>Ajouter l'objet au tableau <code>panierAchats</code> avec
+            <li>Ajouter l'objet au tableau <code>listeCourses</code> avec
                 <a class="ext"
                    href="https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Global_Objects/Array/push">
                     push()</a></li>
@@ -53,7 +53,7 @@
                                        href="https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Global_Objects/Array/filter">filter()</a>
                 pour créer un nouveau tableau sans l'article à supprimer
             </li>
-            <li>Remplacer le tableau <code>panierAchats</code> par le nouveau tableau</li>
+            <li>Remplacer le tableau <code>listeCourses</code> par le nouveau tableau</li>
         </ol>
     </li>
     <li>Appeler la méthode <code>supprimerArticle</code> lors du clic sur les liens "Supprimer".
@@ -91,7 +91,7 @@
             <th>Article</th>
             <th>Actions</th>
         </tr>
-        <tr v-for="ele in panierAchats" :key="ele.id">
+        <tr v-for="ele in listeCourses" :key="ele.id">
             <td>{{ ele.id }}</td>
             <td>{{ ele.libelle }}</td>
             <td>
@@ -107,7 +107,7 @@
             return {
                 nouvelArticle: "",
                 dernierId: 4,
-                panierAchats: [
+                listeCourses: [
                     {id: 1, libelle: "Pommes"},
                     {id: 2, libelle: "Poires"},
                     {id: 3, libelle: "Oranges"},
@@ -122,11 +122,11 @@
                     return;
                 }
 
-                this.panierAchats.push({id: ++this.dernierId, libelle: this.nouvelArticle});
+                this.listeCourses.push({id: ++this.dernierId, libelle: this.nouvelArticle});
                 this.nouvelArticle = "";
             },
             supprimerArticle(id) {
-                this.panierAchats = this.panierAchats.filter(art => art.id !== id);
+                this.listeCourses = this.listeCourses.filter(art => art.id !== id);
             }
         }
     }).mount("#monapp");
