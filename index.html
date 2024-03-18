@@ -85,8 +85,8 @@
 <div id="monapp">
     <h2>Ajout d'un article</h2>
     <label for="article">Ajouter à la liste de courses</label>
-    <input id="article" type="text" v-model="nouvelArticle">
-    <button @click="ajouterArticle">Ajouter un article</button>
+    <input id="article" type="text">
+    <button>Ajouter un article</button>
 
     <h2>Votre liste de courses</h2>
     <table>
@@ -95,11 +95,11 @@
             <th>Article</th>
             <th>Actions</th>
         </tr>
-        <tr v-for="ele in listeCourses" :key="ele.id">
-            <td>{{ ele.id }}</td>
-            <td>{{ ele.libelle }}</td>
+        <tr v-for="article in listeCourses" :key="article.id">
+            <td>{{ article.id }}</td>
+            <td>{{ article.libelle }}</td>
             <td>
-                <a @click="supprimerArticle(ele.id)">Supprimer</a>
+                <a @click="jAime(article.libelle)">Supprimer</a>
             </td>
         </tr>
     </table>
@@ -109,7 +109,6 @@
     const appli = Vue.createApp({
         data() {
             return {
-                nouvelArticle: "",
                 dernierId: 4,
                 listeCourses: [
                     {id: 1, libelle: "Pommes"},
@@ -120,18 +119,9 @@
             }
         },
         methods: {
-            ajouterArticle() {
-                if (this.nouvelArticle === "") {
-                    alert("Veuillez saisir un article");
-                    return;
-                }
-
-                this.listeCourses.push({id: ++this.dernierId, libelle: this.nouvelArticle});
-                this.nouvelArticle = "";
+            jAime(txt) {
+                alert("J'aime les " + txt);
             },
-            supprimerArticle(id) {
-                this.listeCourses = this.listeCourses.filter(art => art.id !== id);
-            }
         }
     }).mount("#monapp");
 </script>
