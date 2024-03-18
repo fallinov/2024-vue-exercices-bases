@@ -17,8 +17,10 @@
     <li><code>id</code> : un identifiant unique</li>
     <li><code>libelle</code> : le nom de l'article</li>
 </ul>
-<p>Les id des articles sont générés à partir du compteur <code>dernierId</code> qu'il faudra incrémenter à chaque ajout.</p>
-<p>Pour ajouter un nouvel article, l'utilisateur doit saisir le nom de l'article dans le champ texte et cliquer sur le bouton.</p>
+<p>Les id des articles sont générés à partir du compteur <code>dernierId</code> qu'il faudra incrémenter à chaque ajout.
+</p>
+<p>Pour ajouter un nouvel article, l'utilisateur doit saisir le nom de l'article dans le champ texte et cliquer sur le
+    bouton.</p>
 <p>Si le champ texte est vide, une alerte <code>"Veuillez saisir un article"</code> doit être affichée.</p>
 <p>Le champ texte doit être vidé après l'ajout de l'article.</p>
 
@@ -30,13 +32,16 @@
         <code>ajouterArticle()</code> qui ajoute un article à la liste de courses
         <ol>
             <li>Si le champ texte est vide, afficher une alerte <code>"Veuillez saisir un article"</code>
-                et quitter la méthode.</li>
+                et quitter la méthode.
+            </li>
             <li>Créer un objet avec les propriétés <code>id</code> et <code>libelle</code>
                 en incrémentant <code>dernierId</code>
-                et en récupérant la valeur saisie par l'utilisateur dans le champ texte.</li>
+                et en récupérant la valeur saisie par l'utilisateur dans le champ texte.
+            </li>
             <li>Ajouter l'objet au tableau <code>panierAchats</code> avec
-                <a class="ext" href="https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Global_Objects/Array/push">
-                push()</a></li>
+                <a class="ext"
+                   href="https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Global_Objects/Array/push">
+                    push()</a></li>
             <li>Vider le champ texte pour faciliter la prochaine saisie de l'utilisateur.</li>
         </ol>
     </li>
@@ -44,21 +49,41 @@
     <li>Appeler la méthode <code>ajouterArticle</code> lors du clic sur le bouton</li>
     <li>Créer une méthode supprimerArticle(idArticle) qui supprime un article de la liste de courses
         <ol>
-            <li>Utiliser la méthode <a class="ext" href="https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Global_Objects/Array/filter">filter()</a>
-                pour créer un nouveau tableau sans l'article à supprimer</li>
+            <li>Utiliser la méthode <a class="ext"
+                                       href="https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Global_Objects/Array/filter">filter()</a>
+                pour créer un nouveau tableau sans l'article à supprimer
+            </li>
             <li>Remplacer le tableau <code>panierAchats</code> par le nouveau tableau</li>
         </ol>
     </li>
     <li>Appeler la méthode <code>supprimerArticle</code> lors du clic sur les liens "Supprimer".
-    Ne pas oublier de passer l'id de l'article à supprimer en argument de la méthode.</li>
+        Ne pas oublier de passer l'id de l'article à supprimer en argument de la méthode <code>supprimerArticle(idArticle)</code>.
+    </li>
 </ol>
+
+<h3>Challenge</h3>
+<p>Pour les plus courageux, voici quelques idées d'améliorations à mettre en place :</p>
+<ul>
+    <li>Créer une méthode <code>modifierArticle(idArticle)</code> qui permet de modifier le nom d'un article de la liste de
+        courses. Ajouter un lien "Modifier" à chaque ligne du tableau pour appeler la méthode <code>modifierArticle</code>.</li>
+    <li>Créer une méthode <code>viderListe()</code> qui permet de vider la liste de courses. Ajouter un bouton vider après le bouton
+        "Ajouter un article" pour appeler la méthode <code>viderListe</code>.</li>
+    <li>Créer un méthode <code>trierListe()</code> qui permet de trier la liste de courses par ordre alphabétique.
+        Appeler cette méthode lors du clic sur l'étiquette "Article" <code>&lt;th&gt;Article&lt;/th&gt;</code> du tableau.
+        Utiliser la méthode
+        <a class="ext" href="https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Global_Objects/Array/sort">sort()</a>.
+        pour trier le tableau.
+    </li>
+</ul>
 
 <hr>
 
 <div id="monapp">
-    <h2>Ajouter à la liste de courses</h2>
-    <input type="text" v-model="nouvelArticle">
+    <h2>Ajout d'un article</h2>
+    <label for="article">Ajouter à la liste de courses</label>
+    <input id="article" type="text" v-model="nouvelArticle">
     <button @click="ajouterArticle">Ajouter un article</button>
+
     <h2>Votre liste de courses</h2>
     <table>
         <tr>
@@ -70,7 +95,7 @@
             <td>{{ ele.id }}</td>
             <td>{{ ele.libelle }}</td>
             <td>
-                <a href="#" @click="supprimerArticle(ele.id)">Supprimer</a>
+                <a @click="supprimerArticle(ele.id)">Supprimer</a>
             </td>
         </tr>
     </table>
@@ -83,21 +108,21 @@
                 nouvelArticle: "",
                 dernierId: 4,
                 panierAchats: [
-                    { id: 1, libelle: "Pommes" },
-                    { id: 2, libelle: "Poires" },
-                    { id: 3, libelle: "Oranges" },
-                    { id: 4, libelle: "Bananes" }
+                    {id: 1, libelle: "Pommes"},
+                    {id: 2, libelle: "Poires"},
+                    {id: 3, libelle: "Oranges"},
+                    {id: 4, libelle: "Bananes"}
                 ]
             }
         },
         methods: {
             ajouterArticle() {
-                if(this.nouvelArticle === "") {
+                if (this.nouvelArticle === "") {
                     alert("Veuillez saisir un article");
                     return;
                 }
 
-                this.panierAchats.push({ id: ++this.dernierId, libelle: this.nouvelArticle });
+                this.panierAchats.push({id: ++this.dernierId, libelle: this.nouvelArticle});
                 this.nouvelArticle = "";
             },
             supprimerArticle(id) {
