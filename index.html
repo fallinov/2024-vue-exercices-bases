@@ -11,30 +11,33 @@
 <h1>Vue.js - Les bases</h1>
 <h2>Instructions</h2>
 <ol>
-    <li>Chargez Vue.js (il est dans le dossier <code>js/</code>),
-        et affecter une vue à l'élément d'identifiant <code>monapp</code>.
+    <li>Chargez Vue.js dans cette page HTML, il est dans le dossier <code>js/</code></li>
+    <li>
+        Créer une nouvelle application Vue
+        et la monter sur l'élément HTML avec l'id <code>#monapp</code>.
     </li>
-    <li>Ajoutez une propriété <code>message</code> valant
-        "Salut" au modèle de données Vue.
+    <li>Ajoutez une donnée <code>message</code> à votre Vue avec comme valeur
+        <code>'Salut'</code>.
     </li>
     <li>Affichez le contenu de <code>message</code> dans le premier paragraphe
-        en utilisant la directive <code>v-text</code>.
+        en utilisant la directive
+        <a class="ext" href="https://fr.vuejs.org/api/built-in-directives.html#v-text">v-text</a>.
     </li>
     <li>Affichez le contenu de <code>message</code> dans le deuxième paragraphe
-        avec la syntaxe «&thinsp;moustache&thinsp;».
+        avec la syntaxe «&thinsp;moustache&thinsp;» <code>{{ moustâââche }}</code>.
     </li>
     <li>
         Ajoutez une propriété <code>dateJour</code> initialisée à la date du jour,
-        et affichez l'année courante dans le troisième paragraphe
-        <br>
-        <a href="https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Global_Objects/Date">
-            Les dates en JavaScript
+        et affichez l'année courante dans le troisième paragraphe.
+        <a class="ext" href="https://www.digitalocean.com/community/tutorials/understanding-date-and-time-in-javascript-fr">
+            Comprendre la date et l'heure en JavaScript
         </a>
     </li>
     <li>
-        Créer une propriété <code>lienJu</code> initialisée avec <code>https://www.jura.ch</code>
+        Ajouter une donnée <code>lienJu</code> à votre Vue initialisée avec <code>'https://www.jura.ch'</code>
         <br>
-        Modifier l'attribut <code>href</code> du lien du quatrième paragraphe pour qu'il pointe vers <code>lienJu</code>.
+        Modifier l'attribut <code>href</code> du lien du quatrième paragraphe pour qu'il pointe vers le contenu
+        de la donnée <code>lienJu</code>.
     </li>
 </ol>
 
