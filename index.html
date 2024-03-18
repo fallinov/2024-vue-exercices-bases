@@ -95,11 +95,11 @@
             <th>Article</th>
             <th>Actions</th>
         </tr>
-        <tr v-for="ele in listeCourses" :key="ele.id">
-            <td>{{ ele.id }}</td>
-            <td>{{ ele.libelle }}</td>
+        <tr v-for="article in listeCourses" :key="article.id">
+            <td>{{ article.id }}</td>
+            <td>{{ article.libelle }}</td>
             <td>
-                <a @click="supprimerArticle(ele.id)">Supprimer</a>
+                <a @click="supprimerArticle(article.id)">Supprimer</a>
             </td>
         </tr>
     </table>
