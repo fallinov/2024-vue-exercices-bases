@@ -24,7 +24,7 @@
         <a class="ext" href="https://fr.vuejs.org/api/built-in-directives.html#v-text">v-text</a>.
     </li>
     <li>Affichez le contenu de <code>message</code> dans le deuxième paragraphe
-        avec la syntaxe «&thinsp;moustache&thinsp;» <code>{{ moustâââche }}</code>.
+        avec la syntaxe «&thinsp;moustache&thinsp;» <code>{{ moustaaaaache }}</code>.
     </li>
     <li>
         Ajoutez une propriété <code>dateJour</code> initialisée à la date du jour,
@@ -51,15 +51,18 @@
 </div>
 
 <script>
+    // Créer une nouvelle application Vue
     const appli = Vue.createApp({
         data() {
             return {
-                message: "Salut",
-                dateJour: new Date(),
-                lienJu: "https://www.jura.ch"
+                message: 'Salut', // Ajoutez une donnée message à votre Vue avec comme valeur 'Salut'
+                dateJour: new Date(), // Ajoutez une propriété dateJour initialisée à la date du jour
+                lienJu: 'https://www.jura.ch' // Ajouter une donnée lienJu initialisée avec 'https://www.jura.ch'
             }
         }
     }).mount("#monapp");
+    // Afficher l'application Vue dans la console
+    console.log(appli);
 </script>
 </body>
 </html>
