@@ -37,7 +37,7 @@
 </ul>
 
 <p>Utliser la méthode
-    <a href="https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Global_Objects/Array/filter">filter()</a>
+    <a class="ext" href="https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Global_Objects/Array/filter">filter()</a>
     pour filtrer les élèves par groupe.</p>
 <h3>Exemple d'utilisation de la méthode filter()</h3>
 <pre>const personnes = [
@@ -132,24 +132,11 @@ console.log(result);
         data() {
             return {
                 message: "Salut",
-                eleves: [
-                    {id: 11, nom: "Dupont", note: 12, groupe: "A"},
-                    {id: 455, nom: "Aubin", note: 8, groupe: "B"},
-                    {id: 33, nom: "François", note: 14, groupe: "B"},
-                    {id: 8, nom: "Martin", note: 9, groupe: "A"},
-                    {id: 12, nom: "Lefebvre", note: 10, groupe: "A"},
-                    {id: 9, nom: "Leroy", note: 11, groupe: "B"},
-                    {id: 10, nom: "Lambert", note: 13, groupe: "A"},
-                    {id: 13, nom: "Leroux", note: 15, groupe: "B"},
-                    {id: 14, nom: "Lemaire", note: 16, groupe: "A"},
-                    {id: 15, nom: "Lemoine", note: 17, groupe: "B"},
-                    {id: 16, nom: "Lecomte", note: 18, groupe: "A"},
-                    {id: 17, nom: "Lefevre", note: 19, groupe: "B"},
-                    {id: 18, nom: "Leroux", note: 20, groupe: "A"}
-                ]
             }
         }
     }).mount("#monapp");
+    // Affiche l'objet appli dans la console
+    console.log(appli);
 </script>
 </body>
 </html>
